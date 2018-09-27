@@ -57,26 +57,31 @@ tarefaComposerButton.addEventListener("click", function (event) {
         divTarefas.remove()
     })
 
-    const textoTarefa = document.querySelector(".lista-tarefas__item-texto");
     const buttonMarcar = document.querySelector(".lista-tarefas__delete-checked-button");
     
     buttonMarcar.addEventListener("click", function (selecionarTodas) {
     // selecionarTodas.preventDefault();
     divTarefas.className = "tarefa-cinza"
 })
-
+    let ChecaTarefa = document.querySelectorAll(".lista-tarefas__item-texto")
     divTarefas.addEventListener("click", function(clicarTarefa){
     clicarTarefa.preventDefault();
-    let ChecarItem = divTarefas.childNodes[0].childNodes[3]
+    for (let i = 0; i < ChecaTarefa.length; i++) {
+               let checado  = ChecaTarefa[i];
 
-    if(ChecarItem.classList.contains("tarefa-cinza")){
-        ChecarItem.classList.remove("tarefa-cinza")
-        ChecarItem.classList.add("tarefa")
+    
+        
+
+    // let ChecarItem = divTarefas.childNodes[0].childNodes[3]
+
+    if(checado.classList.contains("tarefa-cinza")){
+        checado.classList.remove("tarefa-cinza")
+        checado.classList.add("tarefa")
       }else{
-        ChecarItem.classList.remove("tarefa");
-        ChecarItem.classList.add("tarefa-cinza");
+         checado.classList.remove("tarefa");
+         checado.classList.add("tarefa-cinza");
       }
-      
+    }
 })
 
 // listaTarefasItem.onmousedown = function (event) { // (1) start the process
