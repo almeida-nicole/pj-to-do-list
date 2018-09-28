@@ -23,7 +23,7 @@ tarefaComposerButton.addEventListener("click", function (event) {
             <button class="lista-tarefas__delete-button" onclick="deletar_esta_merda(this)">x</button>`
 
 
-    const socorroMeuDeus = document.querySelector(".lista-tarefas__item");
+    // const socorroMeuDeus = document.querySelector(".lista-tarefas__item");
 
     // socorroMeuDeus.addEventListener("dragStart", function dragstart_handler(ev) {
     // console.log("dragStart");
@@ -60,29 +60,36 @@ tarefaComposerButton.addEventListener("click", function (event) {
     const buttonMarcar = document.querySelector(".lista-tarefas__delete-checked-button");
     
     buttonMarcar.addEventListener("click", function (selecionarTodas) {
-    // selecionarTodas.preventDefault();
+    selecionarTodas.preventDefault();
     divTarefas.className = "tarefa-cinza"
+ 
+
+   
+ 
 })
-    let ChecaTarefa = document.querySelectorAll(".lista-tarefas__item-texto")
-    divTarefas.addEventListener("click", function(clicarTarefa){
-    clicarTarefa.preventDefault();
-    for (let i = 0; i < ChecaTarefa.length; i++) {
-               let checado  = ChecaTarefa[i];
+    let ChecarItem = divTarefas.childNodes[0].childNodes[3]
+
+    ChecarItem.addEventListener("click", function(clicarTarefa){
+        clicarTarefa.preventDefault();
+
+        if(ChecarItem.classList.contains("tarefa-cinza")){
+            ChecarItem.classList.remove("tarefa-cinza")
+            ChecarItem.classList.add("tarefa")
+            }else{
+             ChecarItem.classList.remove("tarefa");
+             ChecarItem.classList.add("tarefa-cinza");
+             }
+
+
+    })
 
     
-        
-
-    // let ChecarItem = divTarefas.childNodes[0].childNodes[3]
-
-    if(checado.classList.contains("tarefa-cinza")){
-        checado.classList.remove("tarefa-cinza")
-        checado.classList.add("tarefa")
-      }else{
-         checado.classList.remove("tarefa");
-         checado.classList.add("tarefa-cinza");
-      }
-    }
+    
+          
 })
+
+
+
 
 // listaTarefasItem.onmousedown = function (event) { // (1) start the process
 
@@ -119,7 +126,7 @@ tarefaComposerButton.addEventListener("click", function (event) {
 //     return false;
 //   };
 
-})
+// })
 
 
 function deletar_esta_merda(event2) {
